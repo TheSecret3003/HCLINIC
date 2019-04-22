@@ -22,6 +22,7 @@ const create = async (req: Request, res: Response, next: NextFunction) => {
 
 const showAll = async (req: Request, res: Response, next: NextFunction) => {
     const users = await userRepository.find();
+    const lastUser = users[users.length-1].email;
     res.send(users);
     next();
 };
